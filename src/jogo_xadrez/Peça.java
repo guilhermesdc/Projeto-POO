@@ -6,6 +6,9 @@ public class Peça {
 //    ATRIBUTES
     public static char simbolo;
     private boolean emJogo;
+    private boolean cor;
+    private static final boolean preto = false;
+    private static final boolean branco = true;
 
 
 
