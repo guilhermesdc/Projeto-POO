@@ -14,7 +14,7 @@ public class Tabuleiro {
         A, B, C, D, E, F, G, H;
     }
 
-    private Posição[][] tabuleiro;
+    private Posição[][] tabuleiro = new Posição[TAM][TAM];
 
     /* CONTRUCTOR */
     public Tabuleiro() {
@@ -47,21 +47,39 @@ public class Tabuleiro {
 
     public void colocarPecas() {
         // Pretas
-        for (int i = 6; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+
+        for (int j = 0; j < 8; j++) {
+            for (int i = 0; i < 8; i++) {
                 tabuleiro[i][j].setOcupada(true);
-                tabuleiro[i][j].setCorPeca(PRETO);
-                if (i == 6) {
+                if(i>4){
+                    tabuleiro[i][j].setCorPeca(PRETO);
+                }
+                else{
+                tabuleiro[i][j].setCorPeca(BRANCO);
+                }
+                if (i==6 || i==1){
                     tabuleiro[i][j].setPeca(Pecas.PEAO.ordinal());
+                }
+                else if(i==0 || i==7){
+                    if(j == Coluna.A.ordinal() || j == Coluna.H.ordinal()){
+                        tabuleiro[i][j].setPeca(Pecas.TORRE.ordinal());
+                    }
+                    else if(j == Coluna.B.ordinal() || j == Coluna.G.ordinal()){
+                        tabuleiro[i][j].setPeca(Pecas.CAVALO.ordinal());
+                    }
+                    else if(j == Coluna.C.ordinal() || j == Coluna.F.ordinal()){
+                        tabuleiro[i][j].setPeca(Pecas.BISPO.ordinal());
+                    }
+                    else if(j == Coluna.D.ordinal()){
+                        tabuleiro[i][j].setPeca(Pecas.DAMA.ordinal());
+                    }
+                    else if(j == Coluna.E.ordinal()){
+                        tabuleiro[i][j].setPeca(Pecas.REI.ordinal());
+                    }
                 }
             }
         }
-        // Brancas
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 8; j++) {
 
-            }
-        }
     }
 
     /* GETTERS & SETTERS */
