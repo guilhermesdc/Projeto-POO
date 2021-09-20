@@ -14,16 +14,16 @@ public class Tabuleiro {
         A, B, C, D, E, F, G, H;
     }
 
-    private Posição[][] tabuleiro = new Posição[TAM][TAM];
+    private Posição[][] posicao = new Posição[TAM][TAM];
 
     /* CONTRUCTOR */
     public Tabuleiro() {
         for (int i = 0; i < TAM; i++) {
             for (int j = 0; j < TAM; j++) {
                 if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
-                    tabuleiro[i][j] = new Posição(false, BRANCO, i, j);
+                    posicao[i][j] = new Posição(false, BRANCO, i, j);
                 } else {
-                    tabuleiro[i][j] = new Posição(false, PRETO, i, j);
+                    posicao[i][j] = new Posição(false, PRETO, i, j);
                 }
             }
         }
@@ -50,31 +50,31 @@ public class Tabuleiro {
 
         for (int j = 0; j < 8; j++) {
             for (int i = 0; i < 8; i++) {
-                tabuleiro[i][j].setOcupada(true);
+                posicao[i][j].setOcupada(true);
                 if(i>4){
-                    tabuleiro[i][j].setCorPeca(PRETO);
+                    posicao[i][j].setCorPeca(PRETO);
                 }
                 else{
-                tabuleiro[i][j].setCorPeca(BRANCO);
+                posicao[i][j].setCorPeca(BRANCO);
                 }
                 if (i==6 || i==1){
-                    tabuleiro[i][j].setPeca(Pecas.PEAO.ordinal());
+                    posicao[i][j].setPeca(Pecas.PEAO.ordinal());
                 }
                 else if(i==0 || i==7){
                     if(j == Coluna.A.ordinal() || j == Coluna.H.ordinal()){
-                        tabuleiro[i][j].setPeca(Pecas.TORRE.ordinal());
+                        posicao[i][j].setPeca(Pecas.TORRE.ordinal());
                     }
                     else if(j == Coluna.B.ordinal() || j == Coluna.G.ordinal()){
-                        tabuleiro[i][j].setPeca(Pecas.CAVALO.ordinal());
+                        posicao[i][j].setPeca(Pecas.CAVALO.ordinal());
                     }
                     else if(j == Coluna.C.ordinal() || j == Coluna.F.ordinal()){
-                        tabuleiro[i][j].setPeca(Pecas.BISPO.ordinal());
+                        posicao[i][j].setPeca(Pecas.BISPO.ordinal());
                     }
                     else if(j == Coluna.D.ordinal()){
-                        tabuleiro[i][j].setPeca(Pecas.DAMA.ordinal());
+                        posicao[i][j].setPeca(Pecas.DAMA.ordinal());
                     }
                     else if(j == Coluna.E.ordinal()){
-                        tabuleiro[i][j].setPeca(Pecas.REI.ordinal());
+                        posicao[i][j].setPeca(Pecas.REI.ordinal());
                     }
                 }
             }
@@ -84,5 +84,7 @@ public class Tabuleiro {
 
     /* GETTERS & SETTERS */
 
-
+    public boolean getPosicao(int coluna, int linha) {
+        return posicao[linha][coluna].isOcupada();
+    }
 }

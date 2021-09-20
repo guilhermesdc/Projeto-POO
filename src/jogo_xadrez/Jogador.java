@@ -25,4 +25,7 @@ public class Jogador {
 //    GETTERS & SETTERS
 
 
+    public String getNome() {
+        return nome;
+    }
 }

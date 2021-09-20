@@ -30,7 +30,14 @@ public class Posição {
 
 
 //    METHODS
-
+public void imprimir(){
+    System.out.println("Ocupada: " + isOcupada());
+    System.out.println("Cor: " + isCor());
+    System.out.println("Linha: " + getLinha());
+    System.out.println("Coluna: " + getColuna());
+    System.out.println("Peca: " + getPeca());
+    System.out.println("Cor Peca:" + isCorPeca());
+}
 
 //    GETTERS & SETTERS
 
