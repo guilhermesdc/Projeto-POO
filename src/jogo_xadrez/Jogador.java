@@ -4,8 +4,8 @@ public class Jogador {
 //    ATRIBUTES
     private static final boolean preto = false;
     private static final boolean branco = true;
-    private String nome;
-    private boolean cor;
+    private final String nome;
+    private final boolean cor;
     private String[] pecasDisponiveis;
 
 
@@ -27,5 +27,9 @@ public class Jogador {
 
     public String getNome() {
         return nome;
+    }
+
+    public boolean isCor() {
+        return cor;
     }
 }

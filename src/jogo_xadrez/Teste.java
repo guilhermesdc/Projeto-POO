@@ -41,8 +41,12 @@ public class Teste {
 
 //        TesteJogo jogada()
         Jogo j = new Jogo("Jogador1", "Jogador2");
+        j.tabuleiro.desenho();
 
-
+//        System.out.println(casaInicial);
+//        System.out.println(casaFinal);
+//        pecaValida(casaInicial, corJogador);
+//        destinoValido(casaInicial, corJogador);
 
     }
 }

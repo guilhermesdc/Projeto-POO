@@ -3,8 +3,8 @@ package jogo_xadrez;
 public class Posição {
 //    ATRIBUTES
 
-    private static final boolean branco = true;
-    private static final boolean preto = false;
+    private static final boolean BRANCO = true;
+    private static final boolean PRETO = false;
     public enum Pecas {
         REI,DAMA,CAVALO,BISPO,TORRE,PEAO;
     }
@@ -12,7 +12,7 @@ public class Posição {
         A,B,C,D,E,F,G,H;
     }
 
-    private boolean cor;
+    private final boolean cor;
     private boolean ocupada;
     private boolean corPeca;
     private int peca;
@@ -30,14 +30,31 @@ public class Posição {
 
 
 //    METHODS
-public void imprimir(){
-    System.out.println("Ocupada: " + isOcupada());
-    System.out.println("Cor: " + isCor());
-    System.out.println("Linha: " + getLinha());
-    System.out.println("Coluna: " + getColuna());
-    System.out.println("Peca: " + getPeca());
-    System.out.println("Cor Peca:" + isCorPeca());
-}
+    public void imprimir(){
+        System.out.println("Ocupada: " + isOcupada());
+        System.out.println("Cor: " + isCor());
+        System.out.println("Linha: " + getLinha());
+        System.out.println("Coluna: " + getColuna());
+        System.out.println("Peca: " + getPeca());
+        System.out.println("Cor Peca:" + isCorPeca());
+    }
+
+    public void desenho(){
+        if(this.isCor()==BRANCO){
+            if(!this.isOcupada())
+            System.out.print("         ");
+            else{
+                System.out.print("    a    ");
+            }
+        }else{
+            if(!this.isOcupada())
+            System.out.print("*********");
+            else{
+                System.out.print("*** a ***");
+            }
+        }
+
+    }
 
 //    GETTERS & SETTERS
 
