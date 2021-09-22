@@ -21,9 +21,9 @@ public class Jogo {
         tabuleiro = new Tabuleiro();
         tabuleiro.colocarPecas();
 
-        //ta no contrutor soh para fica mais facil por enquanto
-        //recursivo
-        //jogada(jBranco);//jogador branco eh quem comeca o jogo
+//        ta no contrutor soh para fica mais facil por enquanto
+//        recursivo
+        jogada(jBranco);//jogador branco eh quem comeca o jogo
     }
 
 

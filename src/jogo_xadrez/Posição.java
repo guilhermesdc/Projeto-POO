@@ -40,6 +40,14 @@ public class Posição {
     }
 
     public void desenho(){
+        char simbolo;
+//        switch (this.getPeca()){
+//            case Pecas.REI.ordinal():
+//                simbolo = Rei.desenho;
+//
+//
+//        }
+
         if(this.isCor()==BRANCO){
             if(!this.isOcupada())
             System.out.print("         ");
