@@ -1,34 +1,49 @@
+/* UFSCar-Sorocaba
+ *  Ciencia da Computacao
+ *  Programacao Orientada a Objeto
+ * Guilherme Camargo - 792183
+ * Maria Anita de Moura - 790084
+ */
 package jogo_xadrez;
 
+import java.io.IOException;
 import java.util.Scanner;
-
 
 public class Gerenciador {
 
     public static void main(String[] args) {
-        String nomeJogador1;
-        String corJogador1;
-        String nomeJogador2;
-
         Scanner in = new Scanner(System.in);
-        System.out.println("Bem-vindo Jogadores!");
-        System.out.print("Digite o nome do Jogador 1: ");
-        nomeJogador1 = in.nextLine();
-        System.out.print("\n "+ nomeJogador1+" digite B para escolher as pecas brancas, ou P para as pretas: ");
-        corJogador1 = in.nextLine();
-        System.out.print("\nDigite o nome do Jogador 2: ");
-        nomeJogador2 = in.nextLine();
 
-        if(corJogador1.equals("B")){
-            Jogo jogo = new Jogo(nomeJogador1, nomeJogador2);
-        }else{
-            Jogo jogo = new Jogo(nomeJogador2, nomeJogador1);
+        while(true) {
+            try {
+                String nomeJogador1;
+                String nomeJogador2;
+
+
+                System.out.println("Bem-vindo Jogadores!\n");
+                System.out.println("Jogador das pecas brancas, digite seu nome: ");
+                nomeJogador1 = in.nextLine();
+                while(nomeJogador1.length() == 0) {
+                    System.out.println("Jogador das pecas brancas, favor Inserir um nome Valido");
+                    nomeJogador1 = in.nextLine();
+                }
+
+                System.out.print("\nJogador das pecas pretas, digite seu nome: ");
+                nomeJogador2 = in.nextLine();
+                while(nomeJogador2.length() == 0) {
+                    System.out.println("Jogador das pecas pretas, favor Inserir um nome Valido");
+                    nomeJogador2 = in.nextLine();
+                }
+
+                Jogo jogo = new Jogo(nomeJogador1, nomeJogador2);
+                jogo.iniciarJogo();
+            }
+            catch (IllegalArgumentException | IndexOutOfBoundsException e){
+                System.out.println("Digite qualquer coisa para tentar novamente ou 'sair' para finalizar o programa\n");
+                if (in.nextLine().equals("sair")) {
+                    break;
+                }
+            }
         }
-
-
-//        System.out.println(j1.nome);
-//        System.out.println(j1.cor);
-//        System.out.println(j2.nome);
-//        System.out.println(j2.cor);
     }
 }

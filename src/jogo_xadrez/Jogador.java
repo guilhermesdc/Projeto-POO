@@ -1,35 +1,39 @@
+/* UFSCar-Sorocaba
+ *  Ciencia da Computacao
+ *  Programacao Orientada a Objeto
+ * Guilherme Camargo - 792183
+ * Maria Anita de Moura - 790084
+ */
 package jogo_xadrez;
 
 public class Jogador {
-//    ATRIBUTES
-    private static final boolean preto = false;
-    private static final boolean branco = true;
-    private final String nome;
-    private final boolean cor;
-    private String[] pecasDisponiveis;
+
+    private  final String nome;
+    private  final boolean corJogador;
+    public Peca[] pecas = new Peca[16];
 
 
-//    CONTRUCTOR
+    /*CONSTRUCTOR*/
 
-    public Jogador(String nome, boolean cor) {
-        this.cor = cor;
+    public Jogador(String nome, boolean cor, Peca[] array) {
+         if ((nome == null || array == null) ||
+             (nome.length() == 0 && array.length != 16)) {
+            throw new IllegalArgumentException();
+        }
+        this.pecas = array;
+        this.corJogador = cor;
         this.nome = nome;
-        //peão[] = new Peão;
-
     }
 
 
-//    METHODS
 
-
-//    GETTERS & SETTERS
-
+    /*GETTERS AND SETTERS*/
 
     public String getNome() {
         return nome;
     }
 
-    public boolean isCor() {
-        return cor;
+    public boolean isBranco() {
+        return corJogador;
     }
 }
